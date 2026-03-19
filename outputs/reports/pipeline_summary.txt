@@ -1,0 +1,9 @@
+CROP YIELD PREDICTION REPORT
+========================================
+Raw samples: 28242
+Clean samples: 24917
+Best model: RandomForest
+Best MAE: 4956.96
+Best R2: 0.9772
+Association rules: 252
+Clusters: 4

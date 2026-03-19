@@ -1,0 +1,92 @@
+# ============================================================
+# CROP YIELD PREDICTION PROJECT — CONFIG
+# Đề tài 7: Dự báo năng suất cây trồng
+# ============================================================
+
+project:
+  name: "Crop Yield Prediction"
+  seed: 42
+  log_level: "INFO"
+
+paths:
+  raw_data:       "data/raw/yield_df.csv"
+  processed_data: "data/processed/yield_clean.parquet"
+  outputs:        "outputs/"
+  figures:        "outputs/figures/"
+  tables:         "outputs/tables/"
+  models:         "outputs/models/"
+  reports:        "outputs/reports/"
+
+data:
+  target_col:     "Yield"
+  cat_cols:       ["Area", "Item"]
+  num_cols:       ["average_rain_fall_mm_per_year", "pesticides_tonnes", "avg_temp"]
+  year_col:       "Year"
+  drop_cols:      []
+
+preprocessing:
+  yield_min:      0          # loại bản ghi Yield <= 0
+  yield_outlier_low:  0.01   # percentile cắt dưới
+  yield_outlier_high: 0.99   # percentile cắt trên
+  pest_outlier_low:   0.01
+  pest_outlier_high:  0.99
+  fill_strategy:  "median"   # median | mean
+
+features:
+  log_transform_cols: ["pesticides_tonnes"]  # => pesticides_log
+  log_transform_target: true                 # => Yield_log (dùng khi train)
+  encode_strategy: "label"                   # label | onehot
+
+split:
+  test_size:      0.20
+  shuffle:        true
+  time_split_ratio: 0.80     # 80% năm đầu = train (time-series split)
+
+discretization:
+  rain_bins:   [0, 500, 1000, 2000, 99999]
+  rain_labels: ["Rain_Thap", "Rain_TB", "Rain_Cao", "Rain_RatCao"]
+  temp_bins:   [-99, 10, 20, 28, 99]
+  temp_labels: ["Temp_Lanh", "Temp_Am", "Temp_Nong", "Temp_RatNong"]
+  pest_bins:   [-1, 1000, 50000, 200000, 9000000000]
+  pest_labels: ["Pest_It", "Pest_TB", "Pest_Nhieu", "Pest_RatNhieu"]
+  yield_bins:  [0, 10000, 30000, 60000, 9000000000]
+  yield_labels: ["Yield_Thap", "Yield_TB", "Yield_Cao", "Yield_RatCao"]
+
+association:
+  min_support:    0.05
+  min_confidence: 0.5
+  min_lift:       1.0
+  max_len:        4
+  algorithm:      "fpgrowth"   # apriori | fpgrowth
+
+clustering:
+  k_range:        [2, 3, 4, 5, 6, 7, 8, 9, 10]
+  k_best:         4
+  features:       ["average_rain_fall_mm_per_year", "avg_temp", "pesticides_log", "Yield"]
+  n_init:         10
+
+models:
+  features: ["Area_enc", "Item_enc", "Year",
+             "average_rain_fall_mm_per_year", "pesticides_log", "avg_temp"]
+  linear_regression: {}
+  ridge:
+    alpha: 10
+  random_forest:
+    n_estimators:     200
+    max_depth:        15
+    min_samples_leaf: 3
+    n_jobs:           -1
+  xgboost:
+    n_estimators:   300
+    learning_rate:  0.05
+    max_depth:      6
+    subsample:      0.8
+    colsample_bytree: 0.8
+    verbosity:      0
+
+yield_bins_classification:
+  bins:   [0, 20000, 50000, 9000000000]
+  labels: ["Low", "Medium", "High"]
+
+time_series:
+  drift_alpha: 0.05   # ngưỡng p-value KS-test

@@ -1,0 +1,2 @@
+﻿years_early,years_late,mean_early,mean_late,ks_stat,ks_pval,has_drift,interpretation
+1990-2000,2001-2013,68134.2,79877.6,0.0976,0.0,True,CÓ drift phân phối đáng kể!

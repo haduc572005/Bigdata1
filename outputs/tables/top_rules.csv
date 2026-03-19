@@ -1,0 +1,21 @@
+﻿antecedents,consequents,support,confidence,lift
+"frozenset({'Temp_Nong', 'Yield_RatCao'})",frozenset({'Cassava'}),0.05145081671148212,0.2482571649883811,3.378385461504911
+frozenset({'Cassava'}),"frozenset({'Temp_Nong', 'Yield_RatCao'})",0.05145081671148212,0.7001638448935008,3.378385461504911
+"frozenset({'Yield_TB', 'Pest_TB'})",frozenset({'Soybeans'}),0.06068146245535177,0.3118811881188119,2.7143358590137745
+frozenset({'Soybeans'}),"frozenset({'Yield_TB', 'Pest_TB'})",0.06068146245535177,0.5281173594132029,2.714335859013774
+frozenset({'Yield_Cao'}),"frozenset({'Rice, paddy'})",0.05771160252036762,0.3117953165654814,2.5598035923763094
+"frozenset({'Rice, paddy'})",frozenset({'Yield_Cao'}),0.05771160252036762,0.4738056013179572,2.5598035923763094
+frozenset({'Potatoes'}),"frozenset({'Pest_TB', 'Yield_RatCao'})",0.08745033511257375,0.5968227882771844,2.5209414164269544
+"frozenset({'Pest_TB', 'Yield_RatCao'})",frozenset({'Potatoes'}),0.08745033511257375,0.36938464146465505,2.5209414164269544
+"frozenset({'Potatoes', 'Pest_TB'})",frozenset({'Yield_RatCao'}),0.08745033511257375,0.9949771689497717,2.507773226656025
+frozenset({'Yield_RatCao'}),"frozenset({'Potatoes', 'Pest_TB'})",0.08745033511257375,0.22041270483512038,2.507773226656025
+"frozenset({'Temp_Nong', 'Yield_RatCao'})",frozenset({'Sweet potatoes'}),0.051571216438576074,0.2488381099922541,2.4333984249124785
+frozenset({'Sweet potatoes'}),"frozenset({'Temp_Nong', 'Yield_RatCao'})",0.051571216438576074,0.5043171114599686,2.433398424912478
+frozenset({'Rain_TB'}),frozenset({'Temp_Lanh'}),0.0682265120199061,0.2345798261349524,2.4253217957695474
+frozenset({'Temp_Lanh'}),frozenset({'Rain_TB'}),0.0682265120199061,0.7053941908713693,2.4253217957695474
+"frozenset({'Soybeans', 'Pest_TB'})",frozenset({'Yield_TB'}),0.06068146245535177,0.8133405056481979,2.422424740525478
+frozenset({'Yield_TB'}),"frozenset({'Soybeans', 'Pest_TB'})",0.06068146245535177,0.18073153239301937,2.4224247405254777
+frozenset({'Yield_RatCao'}),frozenset({'Potatoes'}),0.13938275073243167,0.3513048755816306,2.3975523376794
+frozenset({'Potatoes'}),frozenset({'Yield_RatCao'}),0.13938275073243167,0.9512462339085183,2.3975523376794
+frozenset({'Yield_RatCao'}),"frozenset({'Potatoes', 'Rain_Cao'})",0.05237388128586908,0.1320048553510014,2.3327411211212072
+"frozenset({'Potatoes', 'Rain_Cao'})",frozenset({'Yield_RatCao'}),0.05237388128586908,0.925531914893617,2.3327411211212072

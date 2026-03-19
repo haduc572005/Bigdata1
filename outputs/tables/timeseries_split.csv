@@ -1,0 +1,2 @@
+﻿split_year,n_train,n_test,MAE,RMSE,R2
+2009,20723,4194,11280.11,21609.68,0.9383

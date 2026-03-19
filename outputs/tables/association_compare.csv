@@ -1,0 +1,3 @@
+﻿Algorithm,Freq_Itemsets,Rules,Rules_HighYield
+Apriori,121,252,55
+FP-Growth,121,252,55
